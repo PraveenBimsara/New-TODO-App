@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ToDo from "./components/ToDo";
-import { addToDo, getAllToDo, updateToDo } from "./utils/HandleApi";
+import { addToDo, getAllToDo, updateToDo, deleteToDo } from "./utils/HandleApi";
 
 function App() {
   const [toDo, setToDo] = useState([]);
@@ -48,6 +48,7 @@ function App() {
               key={item._id}
               text={item.text}
               updateMode={() => updateMode(item._id, item.text)}
+              deleteToDo={() => deleteToDo(item._id, setToDo)}
             />
           ))}
         </div>
